@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agente IA - Áudio Pank AI</title>
+  <style>
+    body { font-family: sans-serif; background: #121212; color: #fff; padding: 2rem; text-align: center; }
+    textarea, input { width: 80%; padding: 1rem; margin: 1rem auto; display: block; border-radius: 8px; }
+    button { padding: 1rem 2rem; border: none; background: #7c3aed; color: white; border-radius: 8px; cursor: pointer; }
+    .audio-controls { margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <h1>Agente IA – Áudio Pank AI</h1>
+  <textarea id="resposta" rows="4" placeholder="Aqui aparecerá a resposta da IA...">Áudio Pank AI: Olá! Como posso te ajudar hoje?</textarea>
+  <div class="audio-controls">
+    <button onclick="ouvirResposta()">🔊 Ouvir Resposta</button>
+  </div>
+  <input type="text" id="whatsapp" placeholder="Digite seu número do WhatsApp" />
+  <button onclick="enviarAudioWhatsApp()">📤 Enviar Áudio via WhatsApp (simulado)</button>
+
+  <script>
+    function ouvirResposta() {
+      const texto = document.getElementById("resposta").value;
+      const speech = new SpeechSynthesisUtterance(texto);
+      speech.lang = "pt-BR";
+      speech.rate = 1;
+      speech.pitch = 1;
+      window.speechSynthesis.speak(speech);
+    }
+
+    function enviarAudioWhatsApp() {
+      const numero = document.getElementById("whatsapp").value;
+      if (!numero) return alert("Digite um número de WhatsApp.");
+      alert("Simulação: o áudio seria enviado para " + numero + " via WhatsApp com o conteúdo de voz da IA.");
+    }
+  </script>
+</body>
+</html>
